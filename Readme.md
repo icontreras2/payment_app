@@ -10,31 +10,34 @@ La aplicación te permite ejecutar los siguientes roles:
 ## Instalación
 
 1. **Clonar el repositorio**
-   git clone git@github.com:icontreras2/payment_app.git
-   cd payment_app
+   `git clone git@github.com:icontreras2/payment_app.git`
+   `cd payment_app`
 
 2. **Configurar el entorno virtual**
-    python3 -m venv env
-    . env/bin/activate
+    `python3 -m venv env`
+    `. env/bin/activate`
 
 3. **Instalar dependencias**
-    pip3 install -r requirements.txt
+    `pip3 install -r requirements.txt`
 
 4. **Resetear base de datos, ejecutar migraciones y crear usuario administrador de Django**
-    make reset
+    `make reset`
 
 5. **Poblar la base de datos local con data definida en el archivo populate_local_db situado en la raíz del repositorio**
-    make populate
+    `make populate`
 
 6. **Ejecutar aplicación**
-    make run
+    `make run`
 
 
-## Consideraciones adicionales del proyecto
+## Supuestos y consideraciones adicionales del proyecto
+
 - Se crearon los modelos Professional, Customer, Scheduling y Payment para modelar las especificaciones pedidas a nivel de lógica de la aplicación y manejo de la base de datos.
 - Para simular el pago exitoso o rechazado de un agendamiento, se utilizó una función que da un 80% de probabilidad al pago exitoso y un 20% de probabilidad al pago rechazado.
-- Se permite registrar administradores, clientes y profesionales.
-- Se permite loguear a cualquiera de los roles anteriores con las credenciales seteadas en sus respectivos registros.
+- En el paso 4 del manual de instalación, se pedirá a través de consola un nombre se usuario, un correo y una contraseña para el usuario administrador del proyecto de Django a setear. Cabe mencionar que por medio de las mismas credenciales de este administrador, será posible loguearse en la aplicación. Otra alternativa es registrar a otro usuario administrador e iniciar sesión con él. Ambos flujos funcionan.
+- Adicional al registro de usuarios de tipo administrador, también se pueden registrar usuarios de tipo cliente y profesional.
+- Se permite loguear a cualquiera de los roles anteriores con las credenciales seteadas en sus respectivos registros. 
+- Si se desea iniciar sesión con alguno de los registros generados a partir del script `populate_local_db.py`, por simplicidad la contraseña siempre será "contraseña123" ya que así fue seteado en dicho archivo, y además el nombre de usuario se puede revisar en este mismo script según el usuario que se quiera utilizar para iniciar sesión.
 - Cuando se desee dejar de correr el entorno virtual, ejecutar `deactivate`
 - Se puede pagar tanto en pesos chilenos como en dólares estadounidenses (moneda extranjera). La conversión de dolar a peso considera que 1 dolar estadounidense = 926 pesos chilenos.
 - Se utilizó Tailwind CSS para el manejo de estilos. En caso de tener problemas para instalar y/o ejecutar la aplicación asociada a Tailwind (llamada theme), seguir el siguiente manual de instalación https://django-tailwind.readthedocs.io/en/latest/installation.html.
