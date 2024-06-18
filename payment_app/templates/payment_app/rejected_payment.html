@@ -1,0 +1,28 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago Fallido</title>
+    {% tailwind_css %}
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 h-screen flex items-center justify-center">
+    <div class="max-w-lg mx-auto p-8 bg-white rounded shadow-md">
+        <h2 class="text-3xl font-semibold text-red-600 mb-6">¡Pago Fallido!</h2>
+        <p class="text-lg text-gray-700 mb-6">El pago de tu agendamiento ha sido rechazado.</p>
+        <div class="mt-8">
+            <a href="/" class="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Volver al inicio</a>
+        </div>
+        <div class="mt-8">
+            <a href="{% url 'pay_scheduling' scheduling_id %}" class="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Intentar pagar nuevamente</a>
+        </div>
+    </div>
+</body>
+</html>

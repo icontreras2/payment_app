@@ -1,0 +1,44 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Pagar agendamiento</title>
+    {% tailwind_css %}
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="p-4">
+    <h1 class="text-3xl font-bold text-center mt-20 mb-10 uppercase">
+        Pagar agendamiento
+    </h1>
+
+    <form method="post" class="max-w-lg mx-auto p-6 bg-white shadow-md rounded-lg">
+        {% csrf_token %}
+        <input type="hidden" id="scheduling" name="scheduling" value="{{ scheduling.id }}">
+        <div class="mb-4">
+            <label for="method" class="block text-sm font-medium text-gray-700">Método de pago</label>
+            <select id="method" name="method" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                {% for method_value, method_in_spanish in payment_methods %}
+                    <option value="{{ method_value }}">{{ method_in_spanish }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-4">
+            <label for="currency_type" class="block text-sm font-medium text-gray-700">Valor</label>
+            <select id="currency_type" name="currency_type" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                {% for currency_type_value, currency_type_in_spanish, payment_amount in payment_info %}
+                    <option value="{{ currency_type_value }}"> {{ payment_amount }} {{ currency_type_in_spanish }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="text-right">
+            <button type="submit" class="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Pagar</button>
+        </div>
+    </form>
+</body>

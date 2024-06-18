@@ -1,0 +1,56 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Inicio - Tu aplicación</title>
+    {% tailwind_css %}
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+    <div class="max-w-6xl mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold text-center uppercase mb-4">
+            Aplicación de Cobranzas
+        </h1>
+        <h2 class="text-3xl font-bold text-center uppercase mb-12">
+            Encuadrado
+        </h2>
+
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <a href="{% url 'register_admin' %}" class="block bg-blue-500 text-white px-8 py-4 rounded text-center hover:bg-blue-600">
+                    Registrarse como administrador
+                </a>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <a href="{% url 'register_customer' %}" class="block bg-blue-500 text-white px-8 py-4 rounded text-center hover:bg-blue-600">
+                    Registrarse como cliente
+                </a>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <a href="{% url 'register_professional' %}" class="block bg-blue-500 text-white px-8 py-4 rounded text-center hover:bg-blue-600">
+                    Registrarse como profesional
+                </a>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <a href="{% url 'login' %}" class="block bg-blue-500 text-white px-8 py-4 rounded text-center hover:bg-blue-600">
+                    Iniciar sesión
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
