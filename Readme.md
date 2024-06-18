@@ -23,7 +23,7 @@ La aplicación te permite ejecutar los siguientes roles:
 4. **Resetear base de datos, ejecutar migraciones y crear usuario administrador de Django**
 - `make reset`
 
-5. **Poblar la base de datos local con data definida en el archivo populate_local_db situado en la raíz del repositorio**
+5. **Poblar la base de datos local con data definida en el archivo `populate_local_db.py` situado en la raíz del repositorio**
 - `make populate`
 
 6. **Ejecutar aplicación**
